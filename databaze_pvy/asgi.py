@@ -1,5 +1,5 @@
 """
-ASGI config for databaze-pvy project.
+ASGI config for databaze_pvy project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'databaze-pvy.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'databaze_pvy.settings')
 
 application = get_asgi_application()

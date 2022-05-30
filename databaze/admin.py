@@ -5,3 +5,5 @@ from .models import *
 admin.site.register(Zanr)
 admin.site.register(Umelec)
 admin.site.register(Song)
+admin.site.register(Album)
+admin.site.register(Attachment)
