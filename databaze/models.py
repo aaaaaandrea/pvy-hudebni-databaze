@@ -2,7 +2,10 @@ from django.db import models
 
 
 def attachment_path(instance, filename):
-    return "databaze/" + str(instance.album.id) + "/attachments/" + filename
+    return "databaze/" + str(instance.umelec.id) + "/attachments/" + filename
+
+def cover_path(instance, filename):
+    return"album/"+ str(instance.id) + "/cover/"+ filename
 
 
 class Zanr(models.Model):
@@ -36,6 +39,8 @@ class Album(models.Model):
 
     zanr = models.ManyToManyField(Zanr)
     umelec = models.ManyToManyField(Umelec)
+    cover = models.ImageField(blank=True, verbose_name="Cover",
+                               upload_to=cover_path)
 
     class Meta:
         verbose_name = 'Album',
@@ -78,7 +83,7 @@ class Attachment(models.Model):
     type = models.CharField(max_length=5, choices=TYPE_OF_ATTACHMENT, blank=True, default='image',
                             help_text='Select allowed attachment type', verbose_name="Attachment type")
 
-    album = models.ForeignKey(Album, on_delete=models.CASCADE)
+    umelec = models.ForeignKey(Umelec, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ["-last_update", "type"]

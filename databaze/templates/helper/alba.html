@@ -1,0 +1,27 @@
+<div>
+    {% for album in alba %}
+
+    <div class="row mb-4 border-bottom">
+            <div class="col-md-2">
+                {% if album.cover %}
+                    <a href="#">
+                    <img src="{{ album.cover.url }}" alt="{{ album.nazev_album }}"
+                         class="img-fluid">
+                    </a>
+                {% else %}
+                    <a href="#">Cover alba není k dispozici</a>
+                {% endif %}
+            </div>
+
+            <div class="col-md-8">
+                <h4><a class="text-dark" href="#">{{ album.nazev_album|upper }}</a></h4>
+                <p> {% for umelec in umelec.all %} {{ umelec.jmeno }} {% endfor %}</p>
+                <p> Datum vydani: {{ album.datum_vydani }}</p>
+                <p> {% for zanr in zanr.all %}
+                    <a href="#" class="btn btn-warning">{{ zanr.nazev }}</a>
+                    {% endfor %} </p>
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
