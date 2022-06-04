@@ -26,6 +26,6 @@ from databaze_pvy import settings
 urlpatterns = [
         path('admin/', admin.site.urls),
         path('databaze/', include('databaze.urls')),
-        path('', RedirectView.as_view(url='databaze/'))
+        path('', RedirectView.as_view(url='databaze/'), name='home')
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
